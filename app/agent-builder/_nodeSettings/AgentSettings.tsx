@@ -67,7 +67,7 @@ function AgentSettings({ selectedNode, updateFormData }: any) {
       <div className="mt-3 flex items-center justify-between">
         <Label>Include Chat History</Label>
         <Switch checked={formData?.includeHistory}
-        onCheckedChange={(evt)=>handleChange('includeHistory',evt.target.value)} />
+        onCheckedChange={(checked) => handleChange('includeHistory', checked)} />
       </div>
 
       <div className="mt-3 flex items-center justify-between">
