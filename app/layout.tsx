@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import {Outfit} from 'next/font/google'
+import { ConvexClientProvider } from "./ConvexClientProvider";
+import { ClerkProvider } from '@clerk/nextjs'
+import Provider from "./provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "AI Agent Builder Platform",
   description: "The app where you can build AI Agent by simply drag and drop",
 };
+
+const outfit = Outfit({subsets:['latin']});
 
 export default function RootLayout({
   children,
@@ -25,9 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={outfit.className}
       >
-        {children}
+        <ClerkProvider>
+          <ConvexClientProvider>
+            <Provider>
+              {children}
+              <Toaster/>
+            </Provider>
+          </ConvexClientProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
