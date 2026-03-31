@@ -32,6 +32,7 @@ import WhileNode from "../_customNodes/WhileNode";
 import UserApprovalNode from "../_customNodes/UserApprovalNode";
 import ApiNode from "../_customNodes/ApiNode";
 import SettingPanel from "../_components/SettingPanel";
+import { BackgroundVariant } from 'reactflow';
 
 
 export const nodeTypes = {
@@ -169,7 +170,7 @@ useOnSelectionChange({
           <MiniMap />
           <Controls />
           {/* @ts-expect-ignore */}
-          <Background variant="dots" gap={12} size={1} />
+          <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
           <Panel position="top-left">
             <AgentToolsPanel />
           </Panel>
