@@ -145,7 +145,6 @@ useEffect(() => {
   };
 
   const onNodeSelect = useCallback(({nodes}:OnSelectionChangeParams) => {
-    //@ts-ignore
       setSelectedNode(nodes[0]);
       console.log(nodes[0])
   },[])
@@ -156,7 +155,7 @@ useOnSelectionChange({
 
   return (
     <div>
-      <Header agentDetail={agentDetail} />
+      <Header agentDetail={agentDetail} onPublish={() => {}}/>
       <div style={{ width: "100vw", height: "90vh" }}>
         <ReactFlow
           nodes={nodes}
