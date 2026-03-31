@@ -13,6 +13,7 @@ import {
   Panel,
   OnSelectionChangeParams,
   useOnSelectionChange,
+  BackgroundVariant,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import StartNode from "../_customNodes/StartNode";
@@ -32,7 +33,6 @@ import WhileNode from "../_customNodes/WhileNode";
 import UserApprovalNode from "../_customNodes/UserApprovalNode";
 import ApiNode from "../_customNodes/ApiNode";
 import SettingPanel from "../_components/SettingPanel";
-import { BackgroundVariant } from 'reactflow';
 
 
 export const nodeTypes = {
