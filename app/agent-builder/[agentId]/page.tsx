@@ -127,7 +127,6 @@ useEffect(() => {
     [],
   );
   const onConnect = useCallback(
-    //@ts-expect-error
     (params: any) =>
       setEdges((edgesSnapshot) => addEdge(params, edgesSnapshot)),
     [],
