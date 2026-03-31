@@ -6,6 +6,7 @@ import { GitBranchPlus } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 import moment from "moment"
 import Link from 'next/link'
+import { Agent } from '@/Types/AgentType'
 
 const MyAgent = () => {
     const {userDetail} = useContext(UserDetailContext);
