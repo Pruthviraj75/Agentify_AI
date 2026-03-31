@@ -6,7 +6,7 @@ import { useConvex, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useParams } from "next/navigation";
 import { Agent } from "@/Types/AgentType";
-import { Background, ReactFlow } from "@xyflow/react";
+import { ReactFlow } from "@xyflow/react";
 import { nodeTypes } from "../page";
 import "@xyflow/react/dist/style.css";
 import axios from "axios"
@@ -230,8 +230,6 @@ const OnPublish=()=>{
               nodeTypes={nodeTypes}
               draggable={false}
             >
-              {/* @ts-expect-ignore */}
-              {/* <Background variant="dots" gap={12} size={1} /> */}
             </ReactFlow>
           </div>
         </div>
