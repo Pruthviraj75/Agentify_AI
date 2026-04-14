@@ -1,6 +1,7 @@
-# 🚀 Agentify AI – AI Agent Builder Platform
+# ⚡ Agentix — AI Agent Creation Platform
 
-Agentify AI is a modern web application that allows users to create, manage, and run custom AI agents with ease. It provides a visual and user-friendly interface to configure agents, integrate APIs, and automate workflows.
+**Agentix** is a full-stack AI platform that enables users to **design, configure, and deploy custom AI agents visually**.  
+It provides a seamless interface to build intelligent workflows, integrate APIs, and run real-time AI-powered conversations.
 
 ---
 
@@ -10,66 +11,102 @@ Agentify AI is a modern web application that allows users to create, manage, and
 
 ---
 
-## 🌟 Features
+## 📸 Screenshots
 
-- 🤖 Create and manage AI agents  
-- 🔗 API integration support (tools like Weather API, etc.)  
-- 🧠 Custom agent configuration (memory, behavior, etc.)  
-- 📊 Dashboard to manage all agents  
-- ⚡ Fast and responsive UI  
-- ☁️ Deployed on Vercel  
+### 🔹 Agent Builder Interface
+![Agent Builder](./public/screenshots/agent-builder.png)
 
----
+### 🔹 Workflow Editor (React Flow)
+![Workflow Editor](./public/screenshots/workflow.png)
 
-## 🛠️ Tech Stack
+### 🔹 Dashboard Overview
+![Dashboard](./public/screenshots/dashboard.png)
 
-- **Frontend:** Next.js 16, React, TypeScript  
-- **UI:** Tailwind CSS, ShadCN UI  
-- **Backend:** Convex  
-- **API Integration:** External APIs (e.g., Weather API, OpenAI/Gemini)  
-- **Deployment:** Vercel  
+### 🔹 Agent Configuration Panel
+![Agent Config](./public/screenshots/config.png)
+
+### 🔹 Live AI Conversation
+![Chat](./public/screenshots/chat.png)
 
 ---
 
-## 📁 Folder Structure
+## ✨ Key Highlights
 
-
-app/
-├── agent-builder/
-├── dashboard/
-├── api/
-components/
-convex/
-public/
-
+- 🧠 Design and launch custom AI agents with a visual workflow interface  
+- 🔄 Real-time conversation streaming with token handling  
+- 🔗 Integrate external APIs (e.g., Weather API, custom tools)  
+- 👤 Secure authentication, user profiles, and pricing system  
+- 🛡️ Built-in rate limiting and abuse protection  
+- ⚡ Optimized for performance with real-time backend sync  
 
 ---
 
-## ⚙️ Installation & Setup
+## 🖥️ Tech Stack
 
-### 1️⃣ Clone the repository
+| Layer        | Technology |
+|-------------|-----------|
+| Frontend     | Next.js 16, React, TypeScript |
+| UI           | Tailwind CSS, ShadCN UI, React Flow |
+| Backend      | Convex (real-time database & serverless functions) |
+| AI Integration | Gemini SDK |
+| Auth         | Clerk |
+| Security     | Arcjet |
+| Deployment   | Vercel |
+
+---
+
+## 🧩 Core Features
+
+### 🔹 Visual Agent Creation
+Build AI agents using an intuitive drag-and-drop interface powered by **React Flow**.
+
+### 🔹 AI Workflow Engine
+Create dynamic workflows with **Gemini-powered logic**, enabling intelligent responses and automation.
+
+### 🔹 Real-Time Execution
+Experience **streaming responses and token-based processing** for fast and interactive AI conversations.
+
+### 🔹 Scalable Architecture
+Powered by **Convex**, ensuring real-time data sync and high scalability.
+
+---
+
+## ⚙️ Getting Started
+
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/Pruthviraj75/Agentify_AI.git
 cd Agentify_AI
-2️⃣ Install dependencies
+```
+### 2️⃣ Install Dependencies
+```bash
 npm install
-3️⃣ Setup environment variables
+```
+### 3️⃣ Environment Setup
 
-Create a .env.local file and add:
-
+Create a .env.local file:
+```bash
 NEXT_PUBLIC_CONVEX_URL=your_convex_url
 NEXT_PUBLIC_CONVEX_SITE_URL=your_site_url
+```
+# Add other API keys if required
 
-(Add API keys if needed)
-
-4️⃣ Run the project locally
+### 4️⃣ Run Locally
+```bash
 npm run dev
-5️⃣ Build for production
+```
+### 5️⃣ Build for Production
+```bash
 npm run build
-🚀 Deployment
+```
+### 🚀 Deployment
 
-This project is deployed using Vercel.
-
-To deploy:
-
+Deployed on Vercel for fast and scalable performance.
+```bash
 vercel
+```
+## 📌 Future Improvements
+- 🧩 More pre-built AI agent templates
+- 📊 Advanced analytics for agent performance
+- 🔌 Plugin marketplace for integrations
+- 🧠 Improved memory handling for agents
