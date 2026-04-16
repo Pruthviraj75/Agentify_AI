@@ -11,13 +11,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import Link from "next/link";
-
-
-type BtnProps = {
-  children: React.ReactNode;
-  href?: string;
-};
-
+import React from "react";
 
 /* ─── Fonts ─── */
 const CSS = `
@@ -34,7 +28,7 @@ body { font-family: 'Inter', sans-serif; }
 /* ─── Light Theme ─── */
 const C = {
   bg: "#FFFFFF",
-  surface: "#FFFFFF", // ✅ FIXED (was gray before)
+  surface: "#FFFFFF",
   card: "#FFFFFF",
   border: "#E5E7EB",
   accent: "#111827",
@@ -44,8 +38,13 @@ const C = {
   textLo: "#6B7280",
 };
 
+/* ─── Shared Button Type ─── */
+type BtnProps = {
+  children: React.ReactNode;
+  href?: string;
+};
+
 /* ───────── Buttons ───────── */
-// function PrimaryBtn({ children, href = "/dashboard" }: { children: React.ReactNode; href?: string }) {
 function PrimaryBtn({ children, href = "/dashboard" }: BtnProps) {
   return (
     <Link
@@ -167,14 +166,10 @@ export default function Home() {
               padding: "16px",
             }}
           >
-              <h2 className="flex items-center gap-2 text-3xl font-semibold">
-                
-                  <img
-                    className="w-6 h-6"
-                    src="/ai2.png"
-                    alt="Ai-Agent"
-                  />Agentix
-              </h2>
+            <h2 className="flex items-center gap-2 text-3xl font-semibold">
+              <img className="w-6 h-6" src="/ai2.png" alt="Ai-Agent" />
+              Agentix
+            </h2>
             <div style={{ display: "flex", gap: 12 }}>
               <GhostBtn>Login</GhostBtn>
               <PrimaryBtn>Get Started</PrimaryBtn>
@@ -191,7 +186,6 @@ export default function Home() {
             overflow: "hidden",
           }}
         >
-          {/* BLUR BACKGROUNDS */}
           <div
             style={{
               position: "absolute",
@@ -204,7 +198,6 @@ export default function Home() {
               filter: "blur(120px)",
             }}
           />
-
           <div
             style={{
               position: "absolute",
@@ -217,7 +210,6 @@ export default function Home() {
               filter: "blur(130px)",
             }}
           />
-
           <div
             style={{
               position: "absolute",
@@ -228,12 +220,10 @@ export default function Home() {
               height: 500,
               borderRadius: "50%",
               background: "white",
-              // background: "rgba(99,102,241,0.15)",
               filter: "blur(160px)",
             }}
           />
 
-          {/* FLOW */}
           <div
             style={{
               position: "absolute",
@@ -247,7 +237,6 @@ export default function Home() {
             <NodeCanvas />
           </div>
 
-          {/* TEXT */}
           <div style={{ position: "relative", zIndex: 2 }}>
             <h1
               style={{
@@ -290,7 +279,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FEATURES (NOW WHITE SAME BG) */}
+        {/* FEATURES */}
         <section style={{ padding: "60px 20px", background: C.bg }}>
           <div
             style={{
@@ -336,7 +325,6 @@ export default function Home() {
           <p style={{ color: C.textLo, marginTop: 10 }}>
             No setup. No complexity. Just build.
           </p>
-
           <div style={{ marginTop: 20 }}>
             <PrimaryBtn>Get Started</PrimaryBtn>
           </div>
