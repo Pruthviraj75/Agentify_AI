@@ -91,8 +91,8 @@ const AppSidebar = () => {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         <div className="flex items-center gap-2">
-          <Image src={"/logo.svg"} alt="logo" width={35} height={35} />
-          {open && <h2 className="font-bold text-lg">Agentify</h2>}
+          <Image src={"/ai.png"} alt="logo" width={35} height={35} />
+          {open && <h2 className="font-bold text-lg">Agentix</h2>}
         </div>
       </SidebarHeader>
 
