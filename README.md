@@ -13,20 +13,15 @@ It provides a seamless interface to build intelligent workflows, integrate APIs,
 
 ## 📸 Screenshots
 
-### 🔹 Agent Builder Interface
-![Agent Builder](./public/screenshots/agent-builder.png)
-
-### 🔹 Workflow Editor (React Flow)
-![Workflow Editor](./public/screenshots/workflow.png)
+### 🔹 Home Page
+![Homepage](public/screenshots/Hpage.png)
 
 ### 🔹 Dashboard Overview
-![Dashboard](./public/screenshots/dashboard.png)
+![Dashboard](public/screenshots/dashboardPage.png)
 
-### 🔹 Agent Configuration Panel
-![Agent Config](./public/screenshots/config.png)
+### 🔹 Workflow Editor (React Flow)
+![Agent Workflow](public/screenshots/agentPage.png)
 
-### 🔹 Live AI Conversation
-![Chat](./public/screenshots/chat.png)
 
 ---
 
