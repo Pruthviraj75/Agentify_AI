@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+
+type BtnProps = {
+  children: React.ReactNode;
+  href?: string;
+};
+
+
 /* ─── Fonts ─── */
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -38,7 +45,8 @@ const C = {
 };
 
 /* ───────── Buttons ───────── */
-function PrimaryBtn({ children, href = "/dashboard" }) {
+// function PrimaryBtn({ children, href = "/dashboard" }: { children: React.ReactNode; href?: string }) {
+function PrimaryBtn({ children, href = "/dashboard" }: BtnProps) {
   return (
     <Link
       href={href}
@@ -60,7 +68,7 @@ function PrimaryBtn({ children, href = "/dashboard" }) {
   );
 }
 
-function GhostBtn({ children, href = "/dashboard" }) {
+function GhostBtn({ children, href = "/dashboard" }: BtnProps) {
   return (
     <Link
       href={href}
