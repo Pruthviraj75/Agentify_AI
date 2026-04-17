@@ -35,7 +35,7 @@ const CreateAgentSection = () => {
 
   const CreateAgent= async ()=>{
 
-    if(!isPaidUser && userDetail && userDetail?.remainingCredits <= 0){
+    if (!isPaidUser && userDetail && (userDetail?.remainingCredits ?? 0) <= 0) {
       toast.error("You have reached the limit of free agents. Please upgrade to create more agents.")
       return;
     }
