@@ -9,7 +9,8 @@
 //   setUserDetail: () => {}, // ✅ default function to prevent crash
 // });
 
-// ✅ Fixed
+import React, { createContext } from "react";
+
 type UserDetailType = {
   _id: string;
   name?: string;
