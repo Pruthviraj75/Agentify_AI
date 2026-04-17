@@ -18,12 +18,11 @@ const MyAgent = () => {
         if(userDetail) GetUserAgents()
     },[userDetail])
     const GetUserAgents= async ()=>{
+        if (!userDetail?._id) return;
         const result=await convex.query(api.agent.GetUserAgents,{
-            userId:userDetail?._id
+            userId:userDetail!._id
         });
-        // console.log(result)
         setAgentList(result)
-        
     }
   return (
     <div className='w-full mt-5'>
