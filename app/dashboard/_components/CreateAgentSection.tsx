@@ -48,7 +48,7 @@ const CreateAgentSection = () => {
         const result = await CreateAgentMutation({
             agentId:agentId,
             name:agentName??'',
-            userId:userDetail?._id
+            userId:userDetail!._id
         })
         console.log(result)
         setOpenDialog(false)
