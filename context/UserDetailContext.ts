@@ -2,9 +2,28 @@
 
 // export const UserDetailContext = createContext<any>(null)
 
-import { createContext } from "react";
+// import { createContext } from "react";
 
-export const UserDetailContext = createContext({
+// export const UserDetailContext = createContext({
+//   userDetail: null,
+//   setUserDetail: () => {}, // ✅ default function to prevent crash
+// });
+
+// ✅ Fixed
+type UserDetailType = {
+  _id: string;
+  name?: string;
+  email?: string;
+  remainingCredits?: number;
+  [key: string]: any;
+};
+
+type UserDetailContextType = {
+  userDetail: UserDetailType | null;
+  setUserDetail: React.Dispatch<React.SetStateAction<UserDetailType | null>>;
+};
+
+export const UserDetailContext = createContext<UserDetailContextType>({
   userDetail: null,
-  setUserDetail: () => {}, // ✅ default function to prevent crash
+  setUserDetail: () => {},
 });
