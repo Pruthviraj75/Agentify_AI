@@ -26,32 +26,29 @@ export async function POST(req: NextRequest) {
 
     // ─── Helper: call a tool and return weather text ─────────────────────────
     const callWeatherTool = async (selectedTool: any, city: string) => {
-      // BUG FIX 1: URL uses single braces {cityName}, not double {{cityName}}
-      let url = selectedTool.url.replace(
-        `{cityName}`,
-        encodeURIComponent(city)
-      );
+  const params = new URLSearchParams();
 
-      if (selectedTool.includeApiKey && selectedTool.apiKey) {
-        url += url.includes("?")
-          ? `&key=${selectedTool.apiKey}`
-          : `?key=${selectedTool.apiKey}`;
-      }
+  // ✅ Always append q (the city) — WeatherAPI requires this
+  params.append("q", city);
 
-      console.log("🌍 FINAL CITY:", city);
-      console.log("🌍 FINAL URL:", url);
+  if (selectedTool.includeApiKey && selectedTool.apiKey) {
+    params.append("key", selectedTool.apiKey);
+  }
 
-      const apiRes = await fetch(url);
-      const apiData = await apiRes.json();
+  const url = `${selectedTool.url}?${params.toString()}`;
 
-      // BUG FIX 3: Return plain text, not JSON (frontend streams the response)
-      if (!apiData || apiData.error) {
-        const errMsg =
-          apiData?.error?.message || "Unknown error from Weather API";
-        return `❌ Weather API Error: ${errMsg}`;
-      }
+  console.log("🌍 FINAL CITY:", city);
+  console.log("🌍 FINAL URL:", url);
 
-      return `
+  const apiRes = await fetch(url);
+  const apiData = await apiRes.json();
+
+  if (!apiData || apiData.error) {
+    const errMsg = apiData?.error?.message || "Unknown error from Weather API";
+    return `❌ Weather API Error: ${errMsg}`;
+  }
+
+  return `
 🌤  Weather in ${apiData.location.name}, ${apiData.location.country}
 
 🌡  Temperature: ${apiData.current.temp_c}°C
@@ -59,8 +56,8 @@ export async function POST(req: NextRequest) {
 💧 Humidity: ${apiData.current.humidity}%
 🌬 Wind: ${apiData.current.wind_kph} kph
 ☁  Condition: ${apiData.current.condition.text}
-      `.trim();
-    };
+  `.trim();
+};
 
     // ─── Build Gemini system prompt ──────────────────────────────────────────
     const systemPrompt = `

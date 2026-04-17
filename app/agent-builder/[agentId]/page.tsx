@@ -147,7 +147,6 @@ useEffect(() => {
 
   const onNodeSelect = useCallback(({nodes}:OnSelectionChangeParams) => {
       setSelectedNode(nodes[0]);
-      console.log(nodes[0])
   },[])
 
 useOnSelectionChange({

@@ -38,7 +38,7 @@ const ChatUi = ({
     toolConfig?.parsedJson?.agents ||
     [];
 
-  console.log("🧠 FRONTEND TOOLS:", tools);
+  // console.log("🧠 FRONTEND TOOLS:", tools);
 
   const OnSendMsg = async () => {
     // ❌ STOP if tools not ready (FIXED POSITION)
@@ -98,7 +98,7 @@ try {
   }
     setLoadingMsg(false);
   };
-  console.log("🧠 FRONTEND TOOLS:", agentDetail?.agentToolConfig);
+  // console.log("🧠 FRONTEND TOOLS:", agentDetail?.agentToolConfig);
 
   return (
     <div>

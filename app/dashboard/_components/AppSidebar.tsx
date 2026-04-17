@@ -62,30 +62,55 @@ const MenuOptions = [
 
 const AppSidebar = () => {
   const { open } = useSidebar();
-  const { userDetail, setUserdetail } = useContext(UserDetailContext);
+  const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const path = usePathname();
   const { has } = useAuth();
   const isPaidUser = has && has({ plan: "unlimited_plan" });
-  console.log("isPaidUser", isPaidUser);
+  // console.log("isPaidUser", isPaidUser);
   const convex = useConvex();
   const [totalRemainigCredits, setTotalRemainingCredits] =
     React.useState<number>(0);
 
+  // const GetUserAgent = async () => {
+  //   const result = await convex.query(api.agent.GetUserAgents, {
+  //     userId: userDetail?._id,
+  //   });
+
+  //   setTotalRemainingCredits(2 - Number(result?.length || 0)); // Assuming each agent costs 1 credit and user starts with 2 credits
+  //   setUserDetail((prev:any) => ({ ...prev, remainingCredits: 2 - Number(result?.length || 0) }));
+
+  //   console.log(result);
+  // };
+
   const GetUserAgent = async () => {
+    if (!userDetail?._id) return;
+
     const result = await convex.query(api.agent.GetUserAgents, {
-      userId: userDetail?._id,
+      userId: userDetail._id,
     });
 
-    setTotalRemainingCredits(2 - Number(result?.length || 0)); // Assuming each agent costs 1 credit and user starts with 2 credits
-    setUserdetail((prev:any) => ({ ...prev, remainingCredits: 2 - Number(result?.length || 0) }));
+    const remaining = 2 - Number(result?.length || 0);
 
-    console.log(result);
+    setTotalRemainingCredits(remaining);
+
+    if (typeof setUserDetail === "function") {
+      setUserDetail((prev: any) => ({
+        ...prev,
+        remainingCredits: remaining,
+      }));
+    }
   };
+
+  // useEffect(() => {
+  //   if (!isPaidUser && userDetail) {
+  //     GetUserAgent();
+  //   }
+  // }, [userDetail]);
   useEffect(() => {
-    if (!isPaidUser && userDetail) {
+    if (!isPaidUser && userDetail?._id) {
       GetUserAgent();
     }
-  }, [userDetail]);
+  }, [userDetail?._id, isPaidUser]);
 
   return (
     <Sidebar collapsible="icon">
@@ -130,7 +155,7 @@ const AppSidebar = () => {
               {open && (
                 <h2>
                   Remaining Credits:{" "}
-                  <span className="font-bold">{ totalRemainigCredits } / 2</span>
+                  <span className="font-bold">{totalRemainigCredits} / 2</span>
                 </h2>
               )}
             </div>

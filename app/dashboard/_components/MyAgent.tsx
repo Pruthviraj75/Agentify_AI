@@ -21,7 +21,7 @@ const MyAgent = () => {
         const result=await convex.query(api.agent.GetUserAgents,{
             userId:userDetail?._id
         });
-        console.log(result)
+        // console.log(result)
         setAgentList(result)
         
     }

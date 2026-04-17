@@ -38,9 +38,6 @@ const Provider = ({
       //save to context
     }
   };
-  //  useEffect(() => {
-  //   if(user)createAndGetUser()
-  //   }, [user])
   useEffect(() => {
     if (!user) return;
     const run = async () => {

@@ -23,6 +23,46 @@ body { font-family: 'Inter', sans-serif; }
   0%,100% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
 }
+
+/* ✅ Responsive tweaks */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column !important;
+    gap: 12px;
+  }
+
+  .hero-section {
+    padding: 80px 16px 60px !important;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .cta-buttons {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .cta-buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-section {
+    padding: 60px 16px !important;
+  }
+}
 `;
 
 /* ─── Light Theme ─── */
@@ -148,37 +188,96 @@ export default function Home() {
 
       <div style={{ background: C.bg, minHeight: "100vh" }}>
         {/* NAVBAR */}
-        <header
-          style={{
-            position: "sticky",
-            top: 0,
-            background: "rgba(255,255,255,0.8)",
-            backdropFilter: "blur(10px)",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 1100,
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "16px",
-            }}
-          >
-            <h2 className="flex items-center gap-2 text-3xl font-semibold">
-              <img className="w-6 h-6" src="/ai2.png" alt="Ai-Agent" />
-              Agentix
-            </h2>
-            <div style={{ display: "flex", gap: 12 }}>
-              <GhostBtn>Login</GhostBtn>
-              <PrimaryBtn>Get Started</PrimaryBtn>
-            </div>
-          </div>
-        </header>
+        {/* NAVBAR */}
+{/* NAVBAR */}
+<header
+  style={{
+    position: "sticky",
+    top: 0,
+    background: "rgba(255,255,255,0.8)",
+    backdropFilter: "blur(10px)",
+    zIndex: 50,
+  }}
+>
+  <div
+    style={{
+      maxWidth: 1100,
+      margin: "0 auto",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "12px 16px",
+      gap: 10,
+    }}
+  >
+    {/* ✅ Agentix → go to home */}
+    <Link
+      href="/"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+        fontSize: "1.2rem", // smaller for mobile
+        fontWeight: 600,
+        textDecoration: "none",
+        color: "#111827",
+        whiteSpace: "nowrap",
+      }}
+    >
+      <img
+        src="/ai2.png"
+        alt="Ai-Agent"
+        style={{ width: 20, height: 20 }}
+      />
+      Agentix
+    </Link>
+
+    {/* ✅ Buttons */}
+    <div
+      style={{
+        display: "flex",
+        gap: 8,
+        flexShrink: 0,
+      }}
+    >
+      <Link
+        href="/dashboard"
+        style={{
+          padding: "8px 12px",
+          borderRadius: 8,
+          border: "1px solid #E5E7EB",
+          fontSize: 13,
+          color: "#374151",
+          textDecoration: "none",
+          background: "#fff",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Login
+      </Link>
+
+      <Link
+        href="/dashboard"
+        style={{
+          padding: "8px 12px",
+          borderRadius: 8,
+          background: "#000",
+          color: "#fff",
+          fontSize: 13,
+          fontWeight: 600,
+          textDecoration: "none",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Get Started
+      </Link>
+    </div>
+  </div>
+</header>
 
         {/* HERO */}
         <section
+          className="hero-section"
           style={{
             textAlign: "center",
             padding: "120px 20px 100px",
@@ -186,59 +285,9 @@ export default function Home() {
             overflow: "hidden",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              top: -120,
-              left: -120,
-              width: 400,
-              height: 400,
-              borderRadius: "50%",
-              background: "white",
-              filter: "blur(120px)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: -140,
-              right: -100,
-              width: 420,
-              height: 420,
-              borderRadius: "50%",
-              background: "white",
-              filter: "blur(130px)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "40%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 500,
-              height: 500,
-              borderRadius: "50%",
-              background: "white",
-              filter: "blur(160px)",
-            }}
-          />
-
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              pointerEvents: "none",
-            }}
-          >
-            <NodeCanvas />
-          </div>
-
           <div style={{ position: "relative", zIndex: 2 }}>
             <h1
+              className="hero-title"
               style={{
                 fontSize: "clamp(2.5rem,5vw,4rem)",
                 fontWeight: 800,
@@ -251,6 +300,7 @@ export default function Home() {
             </h1>
 
             <p
+              className="hero-desc"
               style={{
                 marginTop: 16,
                 color: C.textLo,
@@ -263,6 +313,7 @@ export default function Home() {
             </p>
 
             <div
+              className="cta-buttons"
               style={{
                 marginTop: 30,
                 display: "flex",
@@ -282,6 +333,7 @@ export default function Home() {
         {/* FEATURES */}
         <section style={{ padding: "60px 20px", background: C.bg }}>
           <div
+            className="feature-grid"
             style={{
               maxWidth: 1100,
               margin: "0 auto",
@@ -313,6 +365,7 @@ export default function Home() {
 
         {/* CTA */}
         <section
+          className="cta-section"
           style={{
             textAlign: "center",
             padding: "80px 20px",

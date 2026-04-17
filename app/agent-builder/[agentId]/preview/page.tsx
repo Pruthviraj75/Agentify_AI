@@ -61,7 +61,7 @@ const GetAgentDetail = async () => {
 
     //Get Conversation ID if not 
     const conversationIdResult = await axios.get('/api/agent-chat');
-    console.log(conversationIdResult.data);
+    // console.log(conversationIdResult.data);
     setConversationId(conversationIdResult.data)
 }
 
@@ -170,8 +170,7 @@ const GenerateWorkflow = () => {
     setFlowConfig(config)
 
     // console.log("✅ Generated Workflow Config:", config);
-    console.log("✅ Generated Workflow Config:", JSON.stringify(config));
-    // setConfig(config);   
+    // console.log("✅ Generated Workflow Config:", JSON.stringify(config));
 }
 
 // 🧩 Generate workflow once agent data is loaded
@@ -188,7 +187,7 @@ const GenerateAgentToolConfig= async ()=>{
         jsonConfig:flowConfig
     })
 
-    console.log(result.data)
+    // console.log(result.data)
     //update to our DB
     // await updateAgentToolConfig({
     //      id: agentDetail?._id as any,
