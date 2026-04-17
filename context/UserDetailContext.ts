@@ -10,9 +10,10 @@
 // });
 
 import React, { createContext } from "react";
+import { Id } from "@/convex/_generated/dataModel"; // ← add this
 
 type UserDetailType = {
-  _id: string;
+  _id: Id<"UserTable">; // ← was: string
   name?: string;
   email?: string;
   remainingCredits?: number;
