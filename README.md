@@ -78,10 +78,10 @@ It is designed to work like a **no-code AI orchestration layer** on top of real 
 ![Agent Workflow](public/screenshots/agentPage.png)
 
 ### 💬 Real-Time Agent Chat
-> *(Screenshot placeholder — add preview/chat screenshot here)*
+![Agent Chat](public/screenshots/agentChat.png)
 
 ### 🚀 Publish & Deploy Dialog
-> *(Screenshot placeholder — add PublishCodeDialog screenshot here)*
+![Publish Dialog](public/screenshots/publish.png)
 
 ---
 
