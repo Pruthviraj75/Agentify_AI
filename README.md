@@ -405,6 +405,5 @@ Frontend Engineering Enthusiast | Building real-world full-stack products
 
 Built with ⚡ by Pruthviraj · Powered by Gemini, Convex, Clerk & Vercel
 
-**If you found this project useful, consider giving it a ⭐ on GitHub!**
 
 </div>
