@@ -114,8 +114,8 @@ It is designed to work like a **no-code AI orchestration layer** on top of real 
 - Paid tier (`unlimited_plan`): unlimited agents via Clerk's plan system
 
 ### 🛡️ Rate Limiting & Abuse Protection
-- **Arcjet** middleware protects all API routes
-- Prevents brute-force, spam, and overuse attacks
+- **Arcjet** is integrated at the middleware layer for rate limiting and abuse protection
+- Currently applied to a subset of API routes, with full route coverage planned
 
 ### 📤 One-Click Deploy Code
 - Users can publish their agent and get a ready-to-use TypeScript code snippet
@@ -138,7 +138,7 @@ It is designed to work like a **no-code AI orchestration layer** on top of real 
 | **Database** | Convex | Real-time serverless database + functions |
 | **AI** | Google Gemini SDK | Agent reasoning, tool calling, config generation |
 | **Auth** | Clerk | Authentication, user sessions, plan management |
-| **Security** | Arcjet | Rate limiting, bot protection, abuse prevention |
+| **Security** | Arcjet | Rate limiting, bot protection (partially integrated) |
 | **HTTP Client** | Axios | API calls from frontend |
 | **Streaming** | Web Streams API | Token-by-token response streaming |
 | **Deployment** | Vercel | Production hosting + CI/CD |
@@ -166,15 +166,15 @@ It is designed to work like a **no-code AI orchestration layer** on top of real 
 │                                                         │
 │   POST /api/generate-agent-tool-config                  │
 │   ├── Receives flowConfig (nodes + edges)               │
-│   ├── Calls Gemini → generates tool JSON config         │
-│   └── Returns parsedJson { tools[], agents[] }          │
+│   ├── Calls Gemini → generates tool JSON config          │
+│   └── Returns parsedJson { tools[], agents[] }           │
 │                                                         │
 │   POST /api/agent-chat                                  │
-│   ├── Receives { agentName, tools, inputs }             │
-│   ├── Builds Gemini system prompt with tool definitions │
-│   ├── Calls Gemini → detects tool call or plain text    │
-│   ├── If tool call → executes API (e.g. WeatherAPI)     │
-│   └── Streams response back via ReadableStream          │
+│   ├── Receives { agentName, tools, inputs }              │
+│   ├── Builds Gemini system prompt with tool definitions   │
+│   ├── Calls Gemini → detects tool call or plain text      │
+│   ├── If tool call → executes API (e.g. WeatherAPI)        │
+│   └── Streams response back via ReadableStream            │
 └──────────────────┬──────────────────────────────────────┘
                    │
                    ▼
@@ -182,9 +182,9 @@ It is designed to work like a **no-code AI orchestration layer** on top of real 
 │                      CONVEX DB                          │
 │                                                         │
 │   UserTable       — user profile + credits              │
-│   AgentTable      — agent name, nodes, edges            │
-│   agentToolConfig — Gemini-generated tool config        │
-│   MessagesTable   — conversation history                │
+│   AgentTable      — agent name, nodes, edges             │
+│   agentToolConfig — Gemini-generated tool config          │
+│   MessagesTable   — conversation history                 │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -375,6 +375,7 @@ This deploys both the Convex backend and the Next.js frontend in a single step.
 
 ## 🔮 Future Improvements
 
+- [ ] **Full Arcjet rate-limiting coverage** — extend protection to all remaining API routes
 - [ ] **Agent Templates** — pre-built agent blueprints (Customer Support, Research, Code Review)
 - [ ] **Plugin Marketplace** — community-contributed tool integrations
 - [ ] **Agent Memory** — persistent memory layer across conversations using vector embeddings
